@@ -10,11 +10,13 @@ namespace CleanMovie.Infrastructure
 {
     public class MovieRepository : IMovieRepository
     {
-        public static List<Movie> movies = new List<Movie>()
+        /*public static List<Movie> movies = new List<Movie>()
         {
             new Movie {Id = 1 , Name = "Passion of Christ" , Cost = 2},
             new Movie {Id = 2 , Name = "Home Alone 4" , Cost = 1}
         };
+
+        */
         private readonly MovieDbContext _movieDbContext;
 
         public MovieRepository(MovieDbContext movieDbContext)
