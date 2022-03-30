@@ -15,9 +15,23 @@ namespace CleanMovie.Infrastructure
             new Movie {Id = 1 , Name = "Passion of Christ" , Cost = 2},
             new Movie {Id = 2 , Name = "Home Alone 4" , Cost = 1}
         };
+        private readonly MovieDbContext _movieDbContext;
+
+        public MovieRepository(MovieDbContext movieDbContext)
+        {
+            _movieDbContext = movieDbContext;
+        }
+        public Movie CreateMovie(Movie movie)
+        {
+            _movieDbContext.Movies.Add(movie);
+            _movieDbContext.SaveChanges();
+
+            return movie;
+        }
+
         public List<Movie> GetAllMovies()
         {
-            return movies;
+            return _movieDbContext.Movies.ToList();
         }
     }
 }

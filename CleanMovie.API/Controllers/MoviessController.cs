@@ -23,5 +23,12 @@ namespace CleanMovie.API.Controllers
             return Ok(moviesFromService);
         }
 
+        [HttpPost]
+        public ActionResult<Movie> PostMovie( Movie movie)
+        {
+            var Movie = _service.CreateMovie(movie);
+            return Ok(movie);
+        }
+
     }
 }
